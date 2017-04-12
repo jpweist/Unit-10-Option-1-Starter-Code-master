@@ -9,18 +9,22 @@ var reservationData = {
 };
 
 $('.dropdown-menu li a').click( function(e){
-	e.preventDefault();
-	reservationData.day = $(this).text();
-	console.log(reservationData.day);
+		e.preventDefault();
+		reservationData.day = $(this).text();
+		console.log(reservationData.day);
+
+	$('.reservation-button').on('click', function(e){
+		e.preventDefault();
+		console.log(reservationData.name + " your reservation for " + reservationData.day + " is set.");
+
+	});
+
+	reservationData.name = $('.reservation-name').val()
 });
 
-$('.btn').on('click' function(e){
-	e.preventDefault();
 
 
-	console.log("i was clicked");
 
-});
 
 
 }); // end of jquery
