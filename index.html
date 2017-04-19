@@ -41,7 +41,7 @@
 			<div class="col-md-12 text-center reservation-form">
 				<form class="form-inline reservations">
 				  <div class="form-group">
-				    <input type="text" class="form-control reservation-name" placeholder="Jane Doe">
+				    <input type="text" class="form-control reservation-name" placeholder="Jane Doe", reservationData.name>
 				  </div>
 				  <div class="form-group">
 						<div class="dropdown">
@@ -77,9 +77,8 @@
 
   <!-- Firebase -->
 
-<script src="https://www.gstatic.com/firebasejs/3.7.5/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.7.8/firebase.js"></script>
 <script>
-  // Initialize Firebase
   var config = {
     apiKey: "AIzaSyB7TGeLbitt_KJoFaGvoOZZDoZ4QcHklNg",
     authDomain: "reservation-site-7c2d6.firebaseapp.com",
@@ -88,7 +87,6 @@
     storageBucket: "reservation-site-7c2d6.appspot.com",
     messagingSenderId: "510734839392"
   };
-  firebase.initializeApp(config);
 </script>
 
   <!-- jQuery -->
@@ -101,7 +99,6 @@
   <script src="js/main.js"></script>
 
 	<!-- google maps -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDbt1M_Y1NT5NIZ27O1y0L-PXT5-bEIjs&callback=initMap"
-  async defer></script>
+  
 </body>
 </html>

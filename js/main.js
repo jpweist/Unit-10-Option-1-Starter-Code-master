@@ -1,30 +1,58 @@
 $( document ).ready(function() {
     console.log( "ready!" );
 
-var database = firebase.database(); // firebase 
 
-var reservationData = {
-	name: "",
-	day: ""
-};
+  // Set the configuration for your app
+  // TODO: Replace with your project's config object
+  var config = {
+    apiKey: "AIzaSyB7TGeLbitt_KJoFaGvoOZZDoZ4QcHklNg",
+    authDomain: "reservation-site-7c2d6.firebaseapp.com",
+    databaseURL: "https://reservation-site-7c2d6.firebaseio.com",
+    storageBucket: "reservation-site-7c2d6.appspot.com"
+  };
+  
+  firebase.initializeApp(config);
 
-$('.dropdown-menu li a').click( function(e){
-		e.preventDefault();
-		reservationData.day = $(this).text();
-		console.log(reservationData.day);
+  // Get a reference to the database service
+  var database = firebase.database();
 
-	$('.reservation-button').on('click', function(e){
-		e.preventDefault();
-		console.log(reservationData.name + " your reservation for " + reservationData.day + " is set.");
+  var reservationData = {
+    name: "",
+    day: ""
+  };
 
-	});
+// user name
+$( ".reservation-name" ).keyup(function() {
+    reservationData.name = $( this ).val();
+    console.log(reservationData.name);
+  });
 
-	reservationData.name = $('.reservation-name').val()
+// get day
+
+$('.dropdown-toggle li a').on('click', function(){
+    reservationData.day = $('.dropdown-toggle').val($(this).text());
+    console.log(reservationData.day);
+
 });
 
+$('.reservation-button').click( function(e) {
+    e.preventDefault();
+    console.log(reservationData.name + " your reservation is set for " + reservationData.day + ". We look forward to seeing you.")
+});
+// test drop down button ugh
 
 
+// picked up from tester
+// Get elements
+  const preObject = document.getElementById('object');
 
+// Create references
+  const dbRefObject = firebase.database().ref().child('object');
+
+  // Sync object changes
+  dbRefObject.on('value', snap => console.log(snap.val()));
+
+// end from tester
 
 
 }); // end of jquery
