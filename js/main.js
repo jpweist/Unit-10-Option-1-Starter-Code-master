@@ -22,18 +22,21 @@ $( document ).ready(function() {
   };
 
 // user name
-$( ".reservation-name" ).keyup(function() {
+$( ".reservation-name" ).keyup(function(e) {
+    e.preventDefault();
     reservationData.name = $( this ).val();
     console.log(reservationData.name);
   });
 
 // get day
 
-$('.dropdown-toggle li a').on('click', function(){
-    reservationData.day = $('.dropdown-toggle').val($(this).text());
-    console.log(reservationData.day);
+$(".reservation-day li a").click( function(e){
+    e.preventDefault();
+    reservationData.day = $( this ).text();
+    console.log("day " + reservationData.day);
 
 });
+
 
 $('.reservation-button').click( function(e) {
     e.preventDefault();
