@@ -40,7 +40,9 @@ $(".reservation-day li a").click( function(e){
 
 $('.reservation-button').click( function(e) {
     e.preventDefault();
-    console.log(reservationData.name + " your reservation is set for " + reservationData.day + ". We look forward to seeing you.")
+
+    var reservationsReference = database.ref('reservations');
+    reservationsReference.push(reservationData);
 });
 // test drop down button ugh
 
