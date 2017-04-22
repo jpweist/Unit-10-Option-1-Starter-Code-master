@@ -8,7 +8,9 @@ $( document ).ready(function() {
     apiKey: "AIzaSyB7TGeLbitt_KJoFaGvoOZZDoZ4QcHklNg",
     authDomain: "reservation-site-7c2d6.firebaseapp.com",
     databaseURL: "https://reservation-site-7c2d6.firebaseio.com",
-    storageBucket: "reservation-site-7c2d6.appspot.com"
+    projectId: "reservation-site-7c2d6",
+    storageBucket: "reservation-site-7c2d6.appspot.com",
+    messagingSenderId: "510734839392"
   };
   
   firebase.initializeApp(config);
