@@ -22,6 +22,8 @@ $( document ).ready(function() {
     name: "",
     day: ""
   };
+// var data for firebase for name and day for Handlebars
+
 
 // user name
 $( ".reservation-name" ).keyup(function(e) {
