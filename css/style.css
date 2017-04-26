@@ -1,3 +1,8 @@
+#map {
+  height: 400px;
+  width: 100%;
+ }
+
 .restaurant-pic {
 	height: 50vh;
 	background: url('https://i.ytimg.com/vi/7mphrlxJl5k/maxresdefault.jpg');
@@ -31,3 +36,4 @@
 .restaurant-locator {
 	height: 50vh;
 }
+

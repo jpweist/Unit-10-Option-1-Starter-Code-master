@@ -18,10 +18,19 @@ $( document ).ready(function() {
   // Get a reference to the database service
   var database = firebase.database();
 
+  const uList = document.getElementById('list');
+
+  // var reservationData = { // before handlebars
+  //   name: "",
+  //   day: ""
+  // };
+
   var reservationData = {
-    name: "",
-    day: ""
-  };
+        name: "",
+        day: ""
+
+      };
+
 // var data for firebase for name and day for Handlebars
 
 
@@ -48,20 +57,56 @@ $('.reservation-button').click( function(e) {
     var reservationsReference = database.ref('reservations');
     reservationsReference.push(reservationData);
 });
+
+var getReservations = function(){
+
+ };
 // test drop down button ugh
 
 
-// picked up from tester
 // Get elements
   const preObject = document.getElementById('object');
 
 // Create references
   const dbRefObject = firebase.database().ref().child('object');
+  const dbRefList = dbRefObject.child('reservations');
 
   // Sync object changes
-  dbRefObject.on('value', snap => console.log(snap.val()));
+  dbRefObject.on('value', snap => {
 
-// end from tester
+  });
 
+
+  dbRefList.on('child_added', snap => {
+
+    const li = document.createElement('li');
+    li.innerText = snap.val();
+    uList.appendChildli();
+
+  });
+
+
+
+  var reservationData = document.getElementById('reservations-template').innerHTML;
+  var template = Handlebars.compile(reservationData);
+
+  document.getElementById('reservations-template').innerHTML += reservationData;
+
+//map
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 40.8054491, lng: -73.9654415},
+    zoom: 10,
+    scrollwheel: false
+  });
+
+  var marker = new google.maps.Marker({
+    position: {lat: 40.8054491, lng: -73.9654415},
+    map: map,
+    title: 'Monks Café'
+  });
+} 
+initMap();
+// end map
 
 }); // end of jquery

@@ -14,8 +14,8 @@
 	<!-- template for reservation-list -->
 	<script id="reservation-template" type="text/x-handlebars-template">
 		<tr>
-			<td>{{name}}</td>
-			<td>{{day}}</td>
+			<td>Name {{name}}</td>
+			<td>Day {{day}}</td>
 		</tr>
 	</script>
 
@@ -61,26 +61,31 @@
 			</div>
 		</div>
 
-		<!-- reservations -->
+		<div id="reservationData"></div>
 		<table class="table table-striped col-md-12 container-fluid">
-			<h4>Reservations</h4>
-			<thead>
-				<th>Name</th>
-				<script id="reservations-template" type="text/x-handlebars-template">
-						<td>{{name}}</td>
+		
+		<script id="reservations-template" type="text/x-handlebars-template">
+		<h3>Name {{name}} </h3>
 
-				<th>Day</th>
-						<td>{{day}}</td>
-						
-					</script>
+		<ul>
+			{{#each quotes}}
+			<li>{{quote}}
+			{{/each}}
+		</ul>
 
-			</thead>
-			<tbody class="reservation-list"></tbody>
+		{{{yogiBio}}}<br /> <br />
+		{{makeLink "Yogi Berra Museum" "http://yogiberramuseum.org/"}} <br />
+
+	</script>
 		</table>
 	</div>
 
 	<div id="map" class="container-fluid restaurant-locator">
+
 	</div>
+			<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3OscvkiJuT8GAC_8L7kKH1FZKe6x_wks&callback=initMap">
+		</script>
 
   <!-- Firebase -->
 
