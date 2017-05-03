@@ -11,13 +11,7 @@
 </head>
 <body data-spy="scroll" data-target=".navbar-inverse" data-offset="50">
 
-	<!-- template for reservation-list -->
-	<script id="reservation-template" type="text/x-handlebars-template">
-		<tr>
-			<td>Name {{name}}</td>
-			<td>Day {{day}}</td>
-		</tr>
-	</script>
+	
 
 	<!-- navbar -->
 	<div id="navbar" class="navbar-collapse navbar-inverse collapse navbar-fixed-top">
@@ -60,32 +54,37 @@
 				</form>
 			</div>
 		</div>
+		<!-- template for reservation-list -->
+	<script id="reservations-template" type="text/x-handlebars-template">
+		
+    <thead> 
+        <th>Name</th> 
+        <th>Day</th> 
+    </thead> 
+    <tbody> 
+        {{#reservations}} 
+        <tr> 
+            <td>{{reservations}}</td> 
+            <td>{{reservations}}</td> 
+        </tr> 
+        {{/reservations}} 
+    </tbody> 
+	</script>
 
 		<div id="reservationData"></div>
 		<table class="table table-striped col-md-12 container-fluid">
 		
-		<script id="reservations-template" type="text/x-handlebars-template">
-		<h3>Name {{name}} </h3>
-
-		<ul>
-			{{#each quotes}}
-			<li>{{quote}}
-			{{/each}}
-		</ul>
-
-		{{{yogiBio}}}<br /> <br />
-		{{makeLink "Yogi Berra Museum" "http://yogiberramuseum.org/"}} <br />
-
-	</script>
+		
 		</table>
 	</div>
 
 	<div id="map" class="container-fluid restaurant-locator">
-
+		
 	</div>
-			<script async defer
+	<script async defer
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3OscvkiJuT8GAC_8L7kKH1FZKe6x_wks&callback=initMap">
 		</script>
+		
 
   <!-- Firebase -->
 

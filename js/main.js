@@ -18,7 +18,7 @@ $( document ).ready(function() {
   // Get a reference to the database service
   var database = firebase.database();
 
-  const uList = document.getElementById('list');
+  const uList = $('list');
 
   // var reservationData = { // before handlebars
   //   name: "",
@@ -30,6 +30,8 @@ $( document ).ready(function() {
         day: ""
 
       };
+
+
 
 // var data for firebase for name and day for Handlebars
 
@@ -87,10 +89,10 @@ var getReservations = function(){
 
 
 
-  var reservationData = document.getElementById('reservations-template').innerHTML;
+  var reservationData = $('reservations-template').html();
   var template = Handlebars.compile(reservationData);
 
-  document.getElementById('reservations-template').innerHTML += reservationData;
+  $('reservations-template').html() += reservationData;
 
 //map
 function initMap() {
