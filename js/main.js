@@ -18,7 +18,7 @@ $( document ).ready(function() {
   // Get a reference to the database service
   var database = firebase.database();
 
-  const uList = $('list');
+  var uList = $('list');
 
   // var reservationData = { // before handlebars
   //   name: "",
@@ -39,16 +39,16 @@ $( document ).ready(function() {
 // user name
 $( ".reservation-name" ).keyup(function(e) {
     e.preventDefault();
-    reservationData.name = $( this ).val();
-    console.log(reservationData.name);
+    reservationData = $( this ).val();
+    console.log(reservationData);
   });
 
 // get day
 
 $(".reservation-day li a").click( function(e){
     e.preventDefault();
-    reservationData.day = $( this ).text();
-    console.log("day " + reservationData.day);
+    reservationData = $( this ).text();
+    console.log("day " + reservationData);
 
 });
 
@@ -67,48 +67,57 @@ var getReservations = function(){
 
 
 // Get elements
-  const preObject = document.getElementById('object');
+  var preObject = document.getElementById('object');
 
 // Create references
-  const dbRefObject = firebase.database().ref().child('object');
-  const dbRefList = dbRefObject.child('reservations');
+  var dbRefObject = firebase.database().ref().child('object');
+  var dbRefList = dbRefObject.child('reservations');
 
-  // Sync object changes
-  dbRefObject.on('value', snap => {
+  // // Sync object changes
+  // dbRefObject.on('value', snap => {
 
-  });
-
-
-  dbRefList.on('child_added', snap => {
-
-    const li = document.createElement('li');
-    li.innerText = snap.val();
-    uList.appendChildli();
-
-  });
+  // });
 
 
+  // dbRefList.on('child_added', snap => {
 
-  var reservationData = $('reservations-template').html();
+  //   var li = document.createElement('li');
+  //   li.innerText = snap.val();
+  //   uList.appendChildli();
+
+  // });
+  
+// firebase.database.reservations
+
+
+  var reservationData = $('#reservations-template').html();
   var template = Handlebars.compile(reservationData);
 
-  $('reservations-template').html() += reservationData;
+  $('#reservations-template').html(reservationData);
 
 //map
+
+
+  
+// end map
+
+}); // end of jquery
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 40.8054491, lng: -73.9654415},
     zoom: 10,
     scrollwheel: false
   });
-
-  var marker = new google.maps.Marker({
+var marker = new google.maps.Marker({
     position: {lat: 40.8054491, lng: -73.9654415},
     map: map,
     title: 'Monks Café'
   });
 } 
-initMap();
-// end map
 
-}); // end of jquery
+
+
+
+
+
+
